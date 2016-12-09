@@ -26,7 +26,7 @@ class Main extends React.Component {
 
   render(){
     return(
-      <div className='containing-div'>
+      <div className='container-holding-input-feild'>
         <section className='header'>
         <h1>{this.props.title}</h1>
         <input
@@ -57,7 +57,7 @@ const WeatherDisplayList = (props) => {
   if (!weather) {
     return (
       <div>
-        <div className='Please-Sign'>Enter a Location</div>
+        <div className='original-message'>Enter a Location</div>
       </div>
     )
   }
@@ -80,8 +80,8 @@ const Weather = (props) => {
 
   return(
     <div>
-        <div className='day-of-the-week'>
-          <p className='location'>{location}</p>
+        <div className='individual-day-of-week '>
+          <p className='location-p-tag'>{location}</p>
           <p>{date}</p>
           <p>{temp.high}</p>
           <p>{temp.low}</p>
@@ -91,104 +91,3 @@ const Weather = (props) => {
 }
 
 ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' title='Weatherly'/>, document.querySelector('.application'));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-// export default class Main extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       inputFeild: '',
-//       list: [],
-//     };
-//   }
-//   render() {
-//     return (
-//       <div>
-//         <header>
-//           <h1>{ this.props.title }</h1>
-//           <LocationInput />
-//           <DisplayWeather />
-//         </header>
-//       </div>
-//     )
-//   }
-// }
-//
-// class LocationInput extends React.Component {
-//   render() {
-//     return(
-//       <div>
-//         <input
-//           type='text'
-//           className='LocationInput-feild'
-//           placeholder='Enter Location'/>
-//         <button
-//           className='LocationInput-button'
-//           onClick={ () => {
-//             console.log('submarine')
-//           }}
-//         >Go!
-//       </button>
-//       </div>
-//     )
-//   }
-// }
-//
-//
-//
-// class DisplayWeather extends React.Component {
-//   render() {
-//     return(
-//       <div>
-//         <h1>Sunday</h1>
-//         <h1>Monday</h1>
-//         <h1>Tuesday</h1>
-//         <h1>Wednesday</h1>
-//         <h1>Thursday</h1>
-//         <h1>Friday</h1>
-//         <h1>Saturday</h1>
-//       </div>
-//     )
-//   }
-// }
-//

@@ -21,7 +21,7 @@ h1 {
   background-color: $header-color;
 }
 
-.containing-div {
+.container-holding-input-feild {
   text-align: center;
 }
 
@@ -42,7 +42,7 @@ h1 {
   };
 }
 
-.Please-Sign {
+.original-message {
   display: inline-block;
 }
 
@@ -54,7 +54,7 @@ h1 {
   display: inline-block;
 }
 
-.day-of-the-week {
+.individual-day-of-week {
   background-color: $header-color;
   border: 2px solid $outline-color;
   height: 300px;
@@ -63,7 +63,7 @@ h1 {
   width:200px;
 }
 
-.location {
+.location-p-tag {
   font-size: 20px;
   background-color: #ffffff;
 }
