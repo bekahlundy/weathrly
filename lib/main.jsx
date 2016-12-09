@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-var $ = require('jquery')
+const $ = require('jquery')
 
 class Main extends React.Component {
   constructor() {
@@ -8,7 +8,7 @@ class Main extends React.Component {
     this.state = {
       location: '',
       // setting our location to blank, call api
-      weather: null ,
+      weather: null,
     }
   }
 
