@@ -19,17 +19,18 @@ h1 {
   background-color: $header-color;
 }
 
-.container-holding-input-feild {
+.div-holding-input-feild {
   text-align: center;
+  background-color: $header-color;
 }
 
-.LocationInput-feild {
+.Header-input {
   height: 25px;
   width: 300px;
   margin: 20px 0px;
 }
 
-.LocationInput-button {
+.Header-button {
   height: 25px;
   width: 60px;
   border: none;
