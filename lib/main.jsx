@@ -15,7 +15,8 @@ class Main extends React.Component {
       <div>
         <container className='header'>
           <h1>{this.props.title}</h1>
-          <Header />
+          <Header
+          source = {this.props.source}/>
         </container>
         <Body />
       </div>
@@ -41,6 +42,7 @@ class Header extends React.Component {
     $.get(this.props.source + this.state.location, (results) => {
       this.setState( { weather: results },
       localStorage.setItem('location', this.state.location))
+
     })
   }
 
@@ -78,7 +80,7 @@ class Body extends React.Component {
   }
 }
 
-ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' title='Weather'/>, document.querySelector('.application'))
+ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' title='Weatherly'/>, document.querySelector('.application'))
 
 
 
@@ -171,7 +173,7 @@ ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' t
 
 
 
-
+//
 // import React from 'react'
 // import ReactDOM from 'react-dom'
 // const $ = require('jquery')
