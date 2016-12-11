@@ -6,7 +6,6 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      location: '',
       weather: null,
       test: false,
     }
@@ -25,17 +24,40 @@ class Main extends React.Component {
 }
 
 class Header extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      location: '',
+      working: false,
+    }
+    this.updateProperties = this.updateProperties.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  updateProperties(event) {
+    let value = event.target.value
+    this.setState({location: value})
+  }
+  handleSubmit(event) {
+    let value = true
+    this.setState({working: value})
+  }
+
   render() {
     return(
       <div className='div-holding-input-feild'>
         <container>
           <input
             className='Header-input'
-            placeholder='Enter a Location'>
+            placeholder='Enter a Location'
+            value={this.state.location}
+            onChange={this.updateProperties}>
           </input>
+
           <input className='Header-button'
                 type='button'
-                value='Go!'>
+                value='Go!'
+                onChange={(event) => {this.setState({working: true})}}
+                >
                 </input>
         </container>
       </div>
