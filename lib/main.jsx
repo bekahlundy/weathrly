@@ -28,19 +28,22 @@ class Header extends React.Component {
     super();
     this.state = {
       location: '',
-      working: false,
+      weather: null,
     }
     this.updateProperties = this.updateProperties.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   updateProperties(event) {
     let value = event.target.value
     this.setState({location: value})
   }
-  handleSubmit(event) {
-    let value = true
-    this.setState({working: value})
+
+  locationAccepted(event) {
+    $.get(this.props.source + this.state.location, (results) => {
+      this.setState( { weather: results },
+      localStorage.setItem('location', this.state.location))
+    })
   }
+
 
   render() {
     return(
@@ -53,12 +56,12 @@ class Header extends React.Component {
             onChange={this.updateProperties}>
           </input>
 
-          <input className='Header-button'
-                type='button'
-                value='Go!'
-                onChange={(event) => {this.setState({working: true})}}
-                >
-                </input>
+          <input
+            className='Header-button'
+            type='button'
+            value='Go!'
+            onClick={(event) => this.locationAccepted(event)}>
+          </input>
         </container>
       </div>
     )
@@ -75,7 +78,7 @@ class Body extends React.Component {
   }
 }
 
-ReactDOM.render(<Main title='Weather'/>, document.querySelector('.application'))
+ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' title='Weather'/>, document.querySelector('.application'))
 
 
 
