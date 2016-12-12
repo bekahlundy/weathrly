@@ -6,39 +6,17 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      weather: null,
-      test: false,
-    }
-  }
-  render() {
-    return(
-      <div>
-        <container className='header'>
-          <h1>{this.props.title}</h1>
-          <Header
-          source = {this.props.source}/>
-        </container>
-        <Body />
-      </div>
-    )
-  }
-}
-
-class Header extends React.Component {
-  constructor() {
-    super();
-    this.state = {
       location: '',
-      weather: null,
+      weather: [],
     }
-    this.updateProperties = this.updateProperties.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  updateProperties(event) {
+  handleChange(event) {
     let value = event.target.value
     this.setState({location: value})
   }
 
-  locationAccepted(event) {
+  handleClick(event) {
     $.get(this.props.source + this.state.location, (results) => {
       this.setState( { weather: results },
       localStorage.setItem('location', this.state.location))
@@ -46,38 +24,63 @@ class Header extends React.Component {
     })
   }
 
-
   render() {
     return(
       <div className='div-holding-input-feild'>
-        <container>
-          <input
-            className='Header-input'
-            placeholder='Enter a Location'
-            value={this.state.location}
-            onChange={this.updateProperties}>
-          </input>
+        <container className='header'>
+          <h1>{this.props.title}</h1>
+            <input
+              className='Header-input'
+              placeholder='Enter a Location'
+              value={this.state.location}
+              onChange={this.handleChange}>
+            </input>
 
-          <input
-            className='Header-button'
-            type='button'
-            value='Go!'
-            onClick={(event) => this.locationAccepted(event)}>
-          </input>
+            <input
+              className='Header-button'
+              type='button'
+              value='Go!'
+              onClick={ (event) => {
+                this.handleClick(event);
+              }}>
+            </input>
+            <WeatherDisplay weather = {this.state.weather}/>
         </container>
       </div>
     )
   }
 }
 
-class Body extends React.Component {
-  render() {
-    return(
-      <div>
-        body test
-      </div>
-    )
+const WeatherDisplay = (props) => {
+  let { weather } = (props);
+  if(!weather) {
+    return (
+      <div>please enter a location</div>
+    );
   }
+  return (
+    <div className='Weather-Card'>
+      {weather.map((card) =>
+        <div className='display-cards-inline' key={card.date}>
+          <WeatherData {...card} />
+        </div> )}
+    </div>
+  )
+
+}
+
+const WeatherData = (props) => {
+  let { location, date, weatherType, temp } = props
+  return(
+    <div>
+        <div className='individual-day-of-week '>
+          <p className='location-p-tag'>{location}</p>
+          <p>{date}</p>
+          <p>{temp.high}</p>
+          <p>{temp.low}</p>
+        </div>
+    </div>
+  )
 }
 
 ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' title='Weatherly'/>, document.querySelector('.application'))
@@ -188,7 +191,7 @@ ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' t
 //     }
 //   }
 //
-//   locationAccepted(event){
+//   handleClick(event){
 //     // make our server request
 //     $.get(this.props.source + this.state.location , (results) => {
 //       this.setState( { weather: results }, localStorage.setItem('location', this.state.location))
@@ -216,7 +219,7 @@ ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' t
 //         <input
 //           className='LocationInput-button'
 //           type='submit'
-//           onClick={ (event) => this.locationAccepted(event) }
+//           onClick={ (event) => this.handleClick(event) }
 //           // made a location accepted event/function before it was a real thing
 //         />
 //         </section>
