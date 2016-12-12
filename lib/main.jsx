@@ -20,7 +20,6 @@ class Main extends React.Component {
     $.get(this.props.source + this.state.location, (results) => {
       this.setState( { weather: results, location: ''},
       localStorage.setItem('location', this.state.location))
-
     })
   }
 
@@ -90,12 +89,31 @@ const WeatherData = (props) => {
           <p className='location-p-tag'>{location.toUpperCase()}</p>
           <p className='date-p-tag'>{date}</p>
           <p className='high-p-tag'>The high today will be {temp.high}</p>
-          <img src={'/images/snow.svg'} width='150px' height='160px'/>
+          <p className={checkWeather(weatherType.type)}></p>
+          {/* <img src={'/images/rain.svg'} width='150px' height='160px'/> */}
           <p className='low-p-tag'>The low today will be {temp.low}</p>
           <p>{weatherType.type}</p>
         </div>
     </div>
   )
+}
+
+function checkWeather(type) {
+  if (type === 'sunny') {
+    return 'sunny'
+  } else if (type === 'cloudy') {
+    return 'cloudy'
+  }  else if (type === 'windy') {
+    return 'windy'
+  } else if (type === 'thunder storms') {
+    return 'thunderstorm'
+  } else if (type === 'foggy') {
+    return 'foggy'
+  } else if (type === 'snow') {
+    return 'snow'
+  } else if (type === 'rain') {
+    return 'rain'
+  }
 }
 
 

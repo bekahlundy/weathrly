@@ -78,3 +78,42 @@ h1 {
   font-size: 12px;
   margin: 8px 0;
 }
+
+
+@mixin img($size, $margin) {
+  height: $size;
+  width: $size;
+  margin: $margin
+}
+
+p.sunny, p.cloudy, p.windy, p.thunderstorm, p.foggy, p.snow, p.rain {
+  @include img(160px, auto);
+}
+
+p.sunny {
+  background-image: url('/images/sun.svg');
+}
+
+p.cloudy {
+  background-image: url('/images/cloudy.svg');
+}
+
+p.windy {
+  background-image: url('/images/wind.svg');
+}
+
+p.thunderstorm {
+  background-image: url('/images/thunder.svg');
+}
+
+p.foggy {
+  background-image: url('/images/fog.svg');
+}
+
+p.snow {
+  background-image: url('/images/snow.svg');
+}
+
+p.rain {
+  background-image: url('/images/rain.svg');
+}
