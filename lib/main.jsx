@@ -41,6 +41,7 @@ class Main extends React.Component {
           <h1>{this.props.title}</h1>
             <input
               className='Header-input'
+              aria-label="enter a location"
               placeholder='Enter a Location'
               type='text'
               value={this.state.location}
