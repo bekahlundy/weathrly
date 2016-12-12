@@ -1,0 +1,153 @@
+@import "variables";
+
+body {
+  background-color: $background-color;
+}
+
+body, input, p {
+  font: menu;
+}
+
+h1, .location-p-tag, .Header-button {
+font-family: $bubble-font;
+color: $title-color;
+}
+
+h1 {
+  font-size: 80px;
+  text-align: center;
+  margin: 10px;
+  font-weight: 100;
+}
+
+.header {
+  background-color: $header-color;
+  padding: 10px 0;
+}
+
+.div-holding-input-feild {
+  text-align: center;
+}
+
+.Header-input {
+  height: 25px;
+  width: 300px;
+  margin: 20px 0px;
+  outline-color: $outline-color;
+}
+
+.Header-button {
+  border: none;
+  height: 25px;
+  width: 60px;
+  margin-left: 10px;
+  outline-color: $outline-color;
+  background-color: $background-color;
+  &:hover {
+    background-color: $outline-color;
+    color: $background-color
+  };
+}
+
+.original-message {
+  display: inline-block;
+}
+
+.Weather-Card {
+  display: block;
+}
+
+.display-cards-inline{
+  display: inline-block;
+}
+
+.individual-day-of-week {
+  background-color: $header-color;
+  border: 2px solid $outline-color;
+  height: 300px;
+  margin:40px 15px;
+  display: inline-block;
+  width:200px;
+}
+
+.location-p-tag {
+  font-size: 20px;
+  background-color: #ffffff;
+  padding: 3px 0;
+}
+
+.date-p-tag {
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+
+@mixin img($size, $margin) {
+  height: $size;
+  width: $size;
+  margin: $margin
+}
+
+p.sunny, p.cloudy, p.windy, p.thunderstorm, p.foggy, p.snow, p.rain {
+  @include img(160px, auto);
+}
+
+p.sunny {
+  background-image: url('/images/sun.svg');
+}
+
+p.cloudy {
+  background-image: url('/images/cloudy.svg');
+}
+
+p.windy {
+  background-image: url('/images/wind.svg');
+}
+
+p.thunderstorm {
+  background-image: url('/images/thunder.svg');
+}
+
+p.foggy {
+  background-image: url('/images/fog.svg');
+}
+
+p.snow {
+  background-image: url('/images/snow.svg');
+}
+
+p.rain {
+  background-image: url('/images/rain.svg');
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .Header-input {
+    height: 40px;
+    width: 90%
+  }
+
+  .Header-button {
+    height: 40px;
+    width: 100px;
+    margin-bottom: 10px;
+  }
+
+  .individual-day-of-week {
+    height: 300px;
+    width: 270px;
+  }
+
+  .location-p-tag {
+    font-size: 26px;
+  }
+
+  .date-p-tag {
+    font-size: 16px;
+  }
+
+}
