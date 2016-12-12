@@ -20,10 +20,7 @@ class Main extends React.Component {
 
   handleKeyPress(event) {
     if (event.key === 'Enter') {
-      $.get(this.props.source + this.state.location, (results) => {
-        this.setState( { weather: results, location: ''},
-        localStorage.setItem('location', this.state.location))
-      })
+      this.handleClick(event);
     }
   }
 
@@ -96,15 +93,15 @@ const WeatherDisplay = (props) => {
 }
 
 const WeatherData = (props) => {
-  let { location, date, weatherType, picture, temp } = props
+  let { location, date, weatherType, temp } = props
   return(
     <div>
         <div className='individual-day-of-week '>
           <p className='location-p-tag'>{location.toUpperCase()}</p>
           <p className='date-p-tag'>{date}</p>
           <p className='high-p-tag'>The high today will be {temp.high}</p>
+          <p className='fake-temp-p-tag'>{(Math.floor(Math.random() * 20) +1) + (temp.low)}</p>
           <p className={checkWeather(weatherType.type)}></p>
-          {/* <img src={'/images/rain.svg'} width='150px' height='160px'/> */}
           <p className='low-p-tag'>The low today will be {temp.low}</p>
           <p>{weatherType.type}</p>
         </div>
@@ -131,4 +128,4 @@ function checkWeather(type) {
 }
 
 
-ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' title='weatherly'/>, document.querySelector('.application'))
+ReactDOM.render(<Main source='http://weatherly-api.herokuapp.com/api/weather/' title='weathrly'/>, document.querySelector('.application'))

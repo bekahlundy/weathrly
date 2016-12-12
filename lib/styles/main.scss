@@ -82,14 +82,16 @@ h1 {
 }
 
 
-@mixin img($size, $margin) {
+@mixin img($size, $margin, $opacity) {
   height: $size;
   width: $size;
-  margin: $margin
+  margin: $margin;
+  opacity: $opacity;
+
 }
 
 p.sunny, p.cloudy, p.windy, p.thunderstorm, p.foggy, p.snow, p.rain {
-  @include img(160px, auto);
+  @include img(160px, auto, .6);
 }
 
 p.sunny {
@@ -121,6 +123,7 @@ p.rain {
 }
 
 @media screen and (max-width: 500px) {
+
   h1 {
     font-size: 60px;
     text-align: center;
