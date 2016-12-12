@@ -1,11 +1,16 @@
 @import "variables";
 
 body {
-  background-color: $primary-color;
+  background-color: $background-color;
 }
 
-h1, body, input, p {
+body, input, p {
   font: menu;
+}
+
+h1, .location-p-tag, .Header-button {
+font-family: $bubble-font;
+color: $title-color;
 }
 
 h1 {
@@ -17,11 +22,11 @@ h1 {
 
 .header {
   background-color: $header-color;
+  padding: 10px 0;
 }
 
 .div-holding-input-feild {
   text-align: center;
-  
 }
 
 .Header-input {
@@ -35,9 +40,10 @@ h1 {
   width: 60px;
   border: none;
   margin-left: 10px;
-  background-color: $primary-color;
+  background-color: $background-color;
   &:hover {
     background-color: $outline-color;
+    color: $background-color
   };
 }
 
@@ -65,4 +71,10 @@ h1 {
 .location-p-tag {
   font-size: 20px;
   background-color: #ffffff;
+  padding: 3px 0;
+}
+
+.date-p-tag {
+  font-size: 12px;
+  margin: 8px 0;
 }
