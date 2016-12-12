@@ -8,7 +8,7 @@ body, input, p {
   font: menu;
 }
 
-h1, .location-p-tag, .Header-button {
+h1, .location-p-tag, .Header-button, .fake-temp-p-tag {
 font-family: $bubble-font;
 color: $title-color;
 }
@@ -79,6 +79,18 @@ h1 {
 .date-p-tag {
   font-size: 12px;
   margin: 8px 0;
+}
+
+.fake-temp-p-tag {
+  font-size: 100px;
+  z-index: 1;
+  display: inline-block;
+}
+
+.degree {
+  font-size: 50px;
+  position: absolute;
+  display: inline-block;
 }
 
 

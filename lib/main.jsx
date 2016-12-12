@@ -99,10 +99,12 @@ const WeatherData = (props) => {
         <div className='individual-day-of-week '>
           <p className='location-p-tag'>{location.toUpperCase()}</p>
           <p className='date-p-tag'>{date}</p>
-          <p className='high-p-tag'>The high today will be {temp.high}</p>
-          <p className='fake-temp-p-tag'>{(Math.floor(Math.random() * 20) +1) + (temp.low)}</p>
+          <p className='high-p-tag'>The high today will be {temp.high}°</p>
+          <p className='fake-temp-p-tag'>{(Math.floor(Math.random() * 20) +1) + (temp.low)}
+            <div className='degree'>°</div>
+          </p>
           <p className={checkWeather(weatherType.type)}></p>
-          <p className='low-p-tag'>The low today will be {temp.low}</p>
+          <p className='low-p-tag'>The low today will be {temp.low}° </p>
           <p>{weatherType.type}</p>
         </div>
     </div>
