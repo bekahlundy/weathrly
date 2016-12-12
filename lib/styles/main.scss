@@ -8,9 +8,16 @@ body, input, p {
   font: menu;
 }
 
-h1, .location-p-tag, .Header-button, .fake-temp-p-tag {
+h1, .location-p-tag, .Header-button{
 font-family: $bubble-font;
+font-weight: 400;
 color: $title-color;
+}
+
+.fake-temp-p-tag {
+  font-family: $bubble-font;
+  font-weight: 300;
+  color: $dark-text-color;
 }
 
 h1 {
@@ -51,6 +58,7 @@ h1 {
 
 .original-message {
   display: inline-block;
+  color: $dark-text-color;
 }
 
 .Weather-Card {
@@ -73,6 +81,7 @@ h1 {
 .location-p-tag {
   font-size: 20px;
   background-color: #ffffff;
+  color: $dark-text-color;
   padding: 3px 0;
 }
 
@@ -85,25 +94,37 @@ h1 {
   font-size: 100px;
   z-index: 1;
   display: inline-block;
+  position: absolute;
+  margin-left: -95px;
+  margin-top: 20px;
 }
 
 .degree {
+  color: $dark-text-color;
   font-size: 50px;
   position: absolute;
   display: inline-block;
+  margin-right: 50px;
+}
+
+.degree-and-pic-p-tag {
+  background-color: $highlight-color;
+}
+
+.high-p-tag, .low-p-tag {
+  margin: 10px 0;
 }
 
 
 @mixin img($size, $margin, $opacity) {
   height: $size;
   width: $size;
-  margin: $margin;
+  margin-left: $margin;
   opacity: $opacity;
-
 }
 
 p.sunny, p.cloudy, p.windy, p.thunderstorm, p.foggy, p.snow, p.rain {
-  @include img(160px, auto, .6);
+  @include img(160px, 55px, .6);
 }
 
 p.sunny {
