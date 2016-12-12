@@ -14,7 +14,7 @@ color: $title-color;
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 80px;
   text-align: center;
   margin: 10px;
   font-weight: 100;
@@ -33,13 +33,15 @@ h1 {
   height: 25px;
   width: 300px;
   margin: 20px 0px;
+  outline-color: $outline-color;
 }
 
 .Header-button {
+  border: none;
   height: 25px;
   width: 60px;
-  border: none;
   margin-left: 10px;
+  outline-color: $outline-color;
   background-color: $background-color;
   &:hover {
     background-color: $outline-color;
@@ -116,4 +118,36 @@ p.snow {
 
 p.rain {
   background-image: url('/images/rain.svg');
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .Header-input {
+    height: 40px;
+    width: 90%
+  }
+
+  .Header-button {
+    height: 40px;
+    width: 100px;
+    margin-bottom: 10px;
+  }
+
+  .individual-day-of-week {
+    height: 300px;
+    width: 270px;
+  }
+
+  .location-p-tag {
+    font-size: 26px;
+  }
+
+  .date-p-tag {
+    font-size: 16px;
+  }
+
 }

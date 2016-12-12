@@ -10,10 +10,21 @@ class Main extends React.Component {
       weather: null,
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   handleChange(event) {
     let value = event.target.value
     this.setState({location: value})
+  }
+
+  handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      $.get(this.props.source + this.state.location, (results) => {
+        this.setState( { weather: results, location: ''},
+        localStorage.setItem('location', this.state.location))
+      })
+    }
   }
 
   handleClick(event) {
@@ -31,8 +42,10 @@ class Main extends React.Component {
             <input
               className='Header-input'
               placeholder='Enter a Location'
+              type='text'
               value={this.state.location}
-              onChange={this.handleChange}>
+              onChange={this.handleChange}
+              onKeyPress={this.handleKeyPress}>
             </input>
 
             <input
